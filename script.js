@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // URL of your JSON file hosted on GitHub Pages
-    const jsonUrl = "https://yourusername.github.io/courses.json";
+    const jsonUrl = "https://megkayla-lage.github.io/courses.json";
     let allCourses = [];
 
     // Fetch JSON data from the URL
@@ -29,11 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Function to filter courses based on search input
+    // Function to filter courses based on search input across all columns
     window.searchSubjects = function () {
         let query = document.getElementById("search-bar").value.toLowerCase();
         let filteredCourses = allCourses.filter(course =>
-            course.description.toLowerCase().includes(query)
+            Object.values(course).some(value =>
+                value.toString().toLowerCase().includes(query)
+            )
         );
         displayCourses(filteredCourses);
     };
