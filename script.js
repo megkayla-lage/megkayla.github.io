@@ -3,10 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const jsonUrl = "https://megkayla-lage.github.io/courses.json";
     let allCourses = [];
 
-    // Fetch JSON data from the URL
+    // Fetch JSON data from the URL with debugging
     fetch(jsonUrl)
         .then(response => response.json())
         .then(data => {
+            console.log("Fetched Data:", data); // Debugging log
             allCourses = data.courses;
             displayCourses(allCourses);
         })
