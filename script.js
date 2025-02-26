@@ -12,21 +12,18 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Error fetching the courses JSON:", error));
 
-    // Function to display courses in the table
+    // Function to display courses in the table efficiently
     function displayCourses(courses) {
         const tableBody = document.querySelector("#courses-table tbody");
-        tableBody.innerHTML = "";
-
-        courses.forEach(course => {
-            let row = `<tr>
+        tableBody.innerHTML = courses.map(course => `
+            <tr>
                 <td>${course.year_level}</td>
                 <td>${course.sem}</td>
                 <td>${course.code}</td>
                 <td>${course.description}</td>
                 <td>${course.credit}</td>
-            </tr>`;
-            tableBody.innerHTML += row;
-        });
+            </tr>
+        `).join('');
     }
 
     // Function to filter courses based on search input across all columns
