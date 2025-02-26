@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // URL of your JSON file hosted on GitHub Pages
-    const jsonUrl = "https://megkayla-lage.github.io/courses.json";
+    const jsonUrl = "https://megkayla-lage.github.io/megkayla.github.io/courses.json";
     let allCourses = [];
 
     // Fetch JSON data from the URL with debugging
